@@ -11,12 +11,27 @@ function App() {
           <div className="flex h-10 font-bold text-8xl text-white m-2">
             {count}
           </div>
-          <div className="flex pt-32 pb-10" >
+          <div className="flex pt-32 pb-10">
             <button
-              className="h-40 w-40 bg-green-500 text-white rounded-full flex items-center justify-center hover:ring-4 hover:ring-green-400 transition ease-in-out duration-300"
+              className="h-40 w-40 bg-green-500 text-white rounded-full flex items-center justify-center hover:ring-4 hover:ring-green-400 transition ease-in-out duration-300 drop-shadow filter hover:drop-shadow-glow"
               onClick={() => setCount((count) => count + 1)}
             >
-              <img className="h-[100px] w-[100px] filter invert object-" src= "https://o.remove.bg/downloads/8023fd7a-16da-46c7-855f-4b5eeee351fb/download-removebg-preview.png" alt="" />
+              <div className="h-[100px] w-[100px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="100"
+                  height="100"
+                  stroke="white"
+                  opacity={0.9}
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
             </button>
           </div>
           <button
