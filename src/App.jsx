@@ -3,18 +3,40 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    // Increase count
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 400);
+
+    setCount((count) => count + 1);
+
+    // Vibrate on supported devices
+    if ("vibrate" in navigator) {
+      navigator.vibrate(200); // Vibrate for 200 milliseconds
+      console.log("vibrated");
+    }
+  };
 
   return (
     <>
       <div className="container bg-black max-w-full h-screen overflow-hidden">
         <div className=" flex flex-col justify-center items-center mt-20 pt-10">
-          <div className="flex h-10 font-bold text-8xl text-white m-2">
+          <div className="flex h-10 font-bold text-8xl text-white m-0 lg:m-2">
             {count}
           </div>
           <div className="flex pt-32 pb-10">
             <button
-              className="h-40 w-40 bg-green-500 text-white rounded-full flex items-center justify-center hover:ring-4 hover:ring-green-400 transition ease-in-out duration-300 drop-shadow filter hover:drop-shadow-glow"
-              onClick={() => setCount((count) => count + 1)}
+              className={`h-40 w-40 bg-green-500 text-white rounded-full flex items-center justify-center 
+              ${
+                isClicked
+                  ? "hover:ring-4 hover:ring-green-400 transition ease-in-out duration-300 drop-shadow filter hover:drop-shadow-glow"
+                  : "transition ease-out"
+              }`}
+              onClick={handleButtonClick}
             >
               <div className="h-[100px] w-[100px]">
                 <svg
