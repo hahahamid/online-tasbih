@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import clip from "./assets/audio.mp3"
 
 function App() {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
+
+  useEffect(() => {
+    if(count % 100 === 0 && count !== 0){
+      const audio = new Audio(clip);
+      audio.play();
+    }
+  },[count])
+
   const handleButtonClick = () => {
-    // Increase count
+    
     setIsClicked(true);
     setTimeout(() => {
       setIsClicked(false);
