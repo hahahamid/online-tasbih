@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import clip from "./assets/audio.mp3"
+import clip from "./assets/audio.mp3";
 
 function App() {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
-
   useEffect(() => {
-    if(count % 100 === 0 && count !== 0){
+    if (count % 100 === 0 && count !== 0) {
       const audio = new Audio(clip);
       audio.play();
     }
-  },[count])
+  }, [count]);
 
   const handleButtonClick = () => {
-    
     setIsClicked(true);
     setTimeout(() => {
       setIsClicked(false);
@@ -39,7 +37,7 @@ function App() {
           </div>
           <div className="flex pt-32 pb-10">
             <button
-              className={`h-40 w-40 bg-green-500 text-white rounded-full flex items-center justify-center 
+              className={`h-72 w-72 bg-green-500 text-white rounded-full flex items-center justify-center 
               ${
                 isClicked
                   ? "hover:ring-4 hover:ring-green-400 transition ease-in-out duration-300 drop-shadow filter hover:drop-shadow-glow"
