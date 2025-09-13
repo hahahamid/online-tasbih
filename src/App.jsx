@@ -6,12 +6,12 @@ function App() {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
-  useEffect(() => {
-    if (count % 100 === 0 && count !== 0) {
-      const audio = new Audio(clip);
-      audio.play();
-    }
-  }, [count]);
+  // useEffect(() => {
+  //   if (count % 100 === 0 && count !== 0) {
+  //     const audio = new Audio(clip);
+  //     audio.play();
+  //   }
+  // }, [count]);
 
   const handleButtonClick = () => {
     setIsClicked(true);
